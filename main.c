@@ -31,7 +31,7 @@ int readIntInRange(int lo, int hi)
     scanf("%d",&year_or_month);
     while (year_or_month<lo||year_or_month>hi) {
         printf("[오류] %d~%d 사이의 값을 입력하세요.\n",lo,hi);
-        printf(">");
+        printf("> ");
         scanf("%d",&year_or_month);
     }
     
@@ -104,9 +104,23 @@ int firstWeekdayOf(int year, int month)
  * 함정: 안쪽 반복은 7칸을 끝까지 돕니다. 날짜가 없다고 건너뛰면 칸이 밀립니다.
  *       ─ 빈 칸을 찍고 「그 칸은 여기까지」로 넘어가는 방법이 있습니다. */
 void printCalendar(int firstWeekday, int days)
-{
-    (void)firstWeekday; (void)days;
-    printf("(아직 미구현입니다 — 요구사항 4 를 채우면 이 줄을 지우세요)\n");
+{for (int week=1,d=1;d<=days;week++) {
+    for (int i=0;i<=6;i++) {
+    if (week==1&&i<firstWeekday) {
+        printf("    ");
+        continue;
+        } else if (d>days) {
+        printf("    ");
+        continue;
+    } else {
+        printf("%3d ", d);
+        d++;
+    }
+    
+}
+    printf("\n");
+}   
+    
 }
 
 /* ── [수정 금지] ─────────────────────────────────────────── */
